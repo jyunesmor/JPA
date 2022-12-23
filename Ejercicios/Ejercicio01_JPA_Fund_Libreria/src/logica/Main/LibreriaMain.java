@@ -20,8 +20,9 @@ public class LibreriaMain {
         clienteServicio cs = new clienteServicio();
         prestamoServicio ps = new prestamoServicio();
         
-        ls.mostrarLibros();
-//        ms.menuPrincipal();
+
+     
+                ms.menuLibro();
     }
 
         
