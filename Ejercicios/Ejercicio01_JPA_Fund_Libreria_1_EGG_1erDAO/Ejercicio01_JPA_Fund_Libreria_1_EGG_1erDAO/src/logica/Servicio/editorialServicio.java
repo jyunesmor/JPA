@@ -12,17 +12,18 @@ public class editorialServicio {
     EditorialDAO ed = new EditorialDAO();
 
     public Editorial cargaEditorial() throws Exception {
+        
         try {
             System.out.println(" ----  Carga de Editorial  ---- ");
             System.out.println("");
-            System.out.println(" ¿Cual es el Número de Editorial? ");
-            String id = leer.next();
+            System.out.println(" ¿Cual es el Codigo de la Editorial? ");
+            Integer id = leer.nextInt();          
             System.out.println(" ¿Cual es el nombre de la Editorial? ");
             String nombre = leer.next();
             System.out.println(" ¿Editorial dada de Alta? ");
             Boolean alta = leer.nextBoolean();
 
-            Editorial e = new Editorial(id, nombre, alta);
+            Editorial e = new Editorial(id,nombre,alta);
             return e;
         } catch (Exception e) {
             throw e;
@@ -33,8 +34,8 @@ public class editorialServicio {
         try {
             Editorial e = cargaEditorial();
             ed.crearEditorialBD(e);
-        } catch (Exception e) {
-            throw e;
+        } catch (Exception ex) {
+            throw ex;
         }
     }
 
@@ -43,7 +44,7 @@ public class editorialServicio {
         mostrarEditorial();
         System.out.println("");
         System.out.println(" ¿ Cual es la Editor desea eliminar? por Codigo ISBN");
-        String id = leer.next();
+        Integer id = leer.nextInt();
         ed.eliminarEditorial(id);
 
     }
@@ -55,7 +56,7 @@ public class editorialServicio {
         }
     }
 
-    public Editorial obtenerEditorial(String id) {
+    public Editorial obtenerEditorial(Integer id) {
         Editorial editorial = ed.obtenerEditorial(id);
         return editorial;
     }
@@ -67,7 +68,7 @@ public class editorialServicio {
             mostrarEditorial();
             System.out.println("");
             System.out.println(" ¿ De cual Editorial desea modificar algun Dato? con Codigo ID");
-            String id = leer.next();
+            Integer id = leer.nextInt();
             Editorial e = ed.obtenerEditorial(id);
             System.out.println(e.toString());
             System.out.println("");

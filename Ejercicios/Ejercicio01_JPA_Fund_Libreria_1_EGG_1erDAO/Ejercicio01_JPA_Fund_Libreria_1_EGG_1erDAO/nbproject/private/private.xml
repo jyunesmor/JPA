@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Juan/Documents/Programacion/Guia_14%20JPA/Ejercicios/Ejercicio01_JPA_Fund_Libreria_1_EGG_1erDAO/Ejercicio01_JPA_Fund_Libreria_1_EGG_1erDAO/src/logica/Servicio/editorialServicio.java</file>
-            <file>file:/C:/Users/Juan/Documents/Programacion/Guia_14%20JPA/Ejercicios/Ejercicio01_JPA_Fund_Libreria_1_EGG_1erDAO/Ejercicio01_JPA_Fund_Libreria_1_EGG_1erDAO/src/logica/persistencia/DAO.java</file>
-            <file>file:/C:/Users/Juan/Documents/Programacion/Guia_14%20JPA/Ejercicios/Ejercicio01_JPA_Fund_Libreria_1_EGG_1erDAO/Ejercicio01_JPA_Fund_Libreria_1_EGG_1erDAO/src/logica/Main/MainPruebas.java</file>
-            <file>file:/C:/Users/Juan/Documents/Programacion/Guia_14%20JPA/Ejercicios/Ejercicio01_JPA_Fund_Libreria_1_EGG_1erDAO/Ejercicio01_JPA_Fund_Libreria_1_EGG_1erDAO/src/logica/persistencia/LibroDAO.java</file>
-            <file>file:/C:/Users/Juan/Documents/Programacion/Guia_14%20JPA/Ejercicios/Ejercicio01_JPA_Fund_Libreria_1_EGG_1erDAO/Ejercicio01_JPA_Fund_Libreria_1_EGG_1erDAO/src/logica/persistencia/EditorialDAO.java</file>
-            <file>file:/C:/Users/Juan/Documents/Programacion/Guia_14%20JPA/Ejercicios/Ejercicio01_JPA_Fund_Libreria_1_EGG_1erDAO/Ejercicio01_JPA_Fund_Libreria_1_EGG_1erDAO/src/logica/Servicio/AutorServicio.java</file>
-            <file>file:/C:/Users/Juan/Documents/Programacion/Guia_14%20JPA/Ejercicios/Ejercicio01_JPA_Fund_Libreria_1_EGG_1erDAO/Ejercicio01_JPA_Fund_Libreria_1_EGG_1erDAO/src/logica/persistencia/ControlDAO.java</file>
-            <file>file:/C:/Users/Juan/Documents/Programacion/Guia_14%20JPA/Ejercicios/Ejercicio01_JPA_Fund_Libreria_1_EGG_1erDAO/Ejercicio01_JPA_Fund_Libreria_1_EGG_1erDAO/src/logica/Servicio/libroServicio.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

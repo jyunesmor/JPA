@@ -1,21 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package logica.persistencia;
+package Logica.DAO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-/**
- *
- * @author Juan
- */
 public abstract class DAO<T> {
 
-    protected EntityManagerFactory EMF = Persistence.createEntityManagerFactory("Libreria_DAOPU");
+    protected EntityManagerFactory EMF = Persistence.createEntityManagerFactory("Base_LibreriaPU");
     protected EntityManager em = EMF.createEntityManager();
 
     public void conectar() {
@@ -32,22 +23,27 @@ public abstract class DAO<T> {
 
     public void guardar(T objeto) {
         conectar();
-         em.persist(objeto);
+        em.getTransaction().begin();
+        em.persist(objeto);
+        em.getTransaction().commit();
         desconectar();
-     //   Throwable e;
+        //   Throwable e;
     }
 
     public void editar(T objeto) {
         conectar();
+        em.getTransaction().begin();
         em.merge(objeto);
+        em.getTransaction().commit();
         desconectar();
     }
 
     public void eliminar(T objeto) {
         conectar();
+        em.getTransaction().begin();
         em.remove(objeto);
+        em.getTransaction().commit();
         desconectar();
     }
 
 }
-

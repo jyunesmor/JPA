@@ -6,7 +6,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import logica.Dominio.Autor;
 import logica.Dominio.Editorial;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2022-12-26T21:00:01")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2022-12-27T16:43:42")
 @StaticMetamodel(Libro.class)
 public class Libro_ { 
 

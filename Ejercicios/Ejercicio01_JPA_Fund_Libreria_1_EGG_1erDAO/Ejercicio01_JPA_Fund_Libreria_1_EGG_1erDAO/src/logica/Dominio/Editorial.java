@@ -3,6 +3,7 @@ package logica.Dominio;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,8 +13,8 @@ import javax.persistence.Id;
 public class Editorial implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer id;
     
     @Basic
     private String nombre;
@@ -22,13 +23,13 @@ public class Editorial implements Serializable {
     public Editorial() {
     }
 
-    public Editorial(String id, String nombre, Boolean alta) {
+    public Editorial(Integer id, String nombre, Boolean alta) {
         this.id = id;
         this.nombre = nombre;
         this.alta = alta;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -40,7 +41,7 @@ public class Editorial implements Serializable {
         return alta;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -1,8 +1,7 @@
 
-package logica.Dominio;
+package Logica.entidades;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,28 +12,26 @@ import javax.persistence.Id;
 public class Autor implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = true)
+    private Integer id;
     
-    @Basic
     private String nombre;
     private Boolean alta;
 
     public Autor() {
     }
 
-    public Autor(Long id, String nombre, Boolean alta) {
+    public Autor(Integer id, String nombre, Boolean alta) {
         this.id = id;
         this.nombre = nombre;
         this.alta = alta;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    
+    public Autor(String nombre, Boolean alta) {
+        this.nombre = nombre;
+        this.alta = alta;
     }
 
     public String getNombre() {
@@ -55,9 +52,7 @@ public class Autor implements Serializable {
 
     @Override
     public String toString() {
-        return "Autor[ " + "id = " + id
-                + ", Nombre Autor = " + nombre
-                + " ] ";
+        return "Autor{" + "id=" + id + ", nombre=" + nombre + ", alta=" + alta + '}';
     }
     
     

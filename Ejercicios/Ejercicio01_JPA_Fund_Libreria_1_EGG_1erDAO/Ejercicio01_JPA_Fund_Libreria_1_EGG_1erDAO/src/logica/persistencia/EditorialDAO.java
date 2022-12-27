@@ -28,14 +28,14 @@ public class EditorialDAO extends DAO<Editorial> {
         }
     }
 
-    public void eliminarEditorial(String id) {
+    public void eliminarEditorial(Integer id) {
         conectar();
         Editorial ed = em.find(Editorial.class, id);
         eliminar(ed);
         desconectar();
     }
 
-    public Editorial obtenerEditorial(String id) {
+    public Editorial obtenerEditorial(Integer id) {
         conectar();
         Editorial ed = em.find(Editorial.class, id);
         desconectar();

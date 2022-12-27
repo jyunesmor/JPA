@@ -60,7 +60,7 @@ public class libroServicio {
         resp = respe.toLowerCase();
         if (respe.equalsIgnoreCase("s")) {
             System.out.println(" Selecciones la misma con su Codigo");
-            String is = leer.next();
+            Integer is = leer.nextInt();
             e = es.obtenerEditorial(is);
         } else {
             e = es.cargaEditorial();

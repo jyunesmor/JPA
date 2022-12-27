@@ -37,7 +37,7 @@ public class LibroDAO extends DAO<Libro> {
     public List<Libro> buscarLibroPorISBN(Long id) {
         em.getTransaction().begin();
         List<Libro> list = em.createQuery("SELECT l FROM Libro l WHERE l.isbn = :busqueda")
-                .setParameter("busqueda", id).getResultList();
+                .setParameter("busqueda",id).getResultList();
         return list;
     }
 

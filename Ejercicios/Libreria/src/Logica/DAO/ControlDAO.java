@@ -1,19 +1,19 @@
-package logica.persistencia;
 
+package Logica.DAO;
+
+import Logica.entidades.Autor;
+import Logica.entidades.Cliente;
+import Logica.entidades.Editorial;
+import Logica.entidades.Libro;
+import Logica.entidades.Prestamo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import logica.Dominio.Autor;
-import logica.Dominio.Cliente;
-import logica.Dominio.Editorial;
-import logica.Dominio.Libro;
-import logica.Dominio.Prestamo;
 
 public class ControlDAO {
-
-   
+    
     AutorDAO ad = new AutorDAO();
     LibroDAO ld = new LibroDAO();
     EditorialDAO ed = new EditorialDAO();
@@ -41,7 +41,7 @@ public class ControlDAO {
         }
     }
 
-    public Autor obtenerAutor(Long id) {
+    public Autor obtenerAutor(Integer id) {
         return ad.obtenerAutor(id);
     }
 
@@ -80,9 +80,9 @@ public class ControlDAO {
         }
     }
 
-    public void eliminarLibroBD(Libro libro) {
+    public void eliminarLibroBD(Integer id) {
         try {
-            ld.eliminarLibro(libro);
+            ld.eliminarLibro(id);
         } catch (Exception ex) {
             Logger.getLogger(ControlDAO.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -96,7 +96,7 @@ public class ControlDAO {
         return ld.obtenerLibros();
     }
 
-    public List<Libro> obtenerLibroPorISBN(Long id) {
+    public List<Libro> obtenerLibroPorISBN(Integer id) {
         List<Libro> libro = new ArrayList<>();
         try {
             libro = ld.buscarLibroPorISBN(id);
@@ -235,5 +235,5 @@ public class ControlDAO {
     public List<Prestamo> obtenerPrestamos() {
         return pd.obtenerPrestamos();
     }
-
+    
 }
