@@ -61,7 +61,7 @@ public class LibroDAO extends DAO<Libro> {
         }
     }
 
-    public List<Libro> buscarLibroPorISBN(Integer isbn) {
+    public List<Libro> buscarLibroPorISBN(Long isbn) {
         try {
             conectar();
             return em.createQuery("SELECT l FROM Libro l WHERE l.isbn :busqueda")

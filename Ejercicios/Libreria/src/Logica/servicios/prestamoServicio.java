@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Logica.Servicio;
+package Logica.servicios;
 
 /**
  *
- * @author home
+ * @author Juan
  */
-public class ServicioLibro {
+public class prestamoServicio {
     
 }

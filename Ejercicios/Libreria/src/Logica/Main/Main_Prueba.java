@@ -1,4 +1,3 @@
-
 package Logica.Main;
 
 import Logica.DAO.AutorDAO;
@@ -8,22 +7,26 @@ import java.util.Scanner;
 import Logica.entidades.Autor;
 import Logica.entidades.Editorial;
 import Logica.entidades.Libro;
-import java.util.ArrayList;
-import java.util.List;
+import Logica.servicios.autorServicio;
+import Logica.servicios.editorialServicio;
+import Logica.servicios.libroServicio;
+
 
 public class Main_Prueba {
 
-   
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         AutorDAO ad = new AutorDAO();
         EditorialDAO ed = new EditorialDAO();
         LibroDAO ld = new LibroDAO();
+        editorialServicio es = new editorialServicio();
+        autorServicio as = new autorServicio();
+        libroServicio ls = new libroServicio();
 
-        
-        
+//        ls.mostrarlibros();
+        ls.cargarLibro();
         
         
     }
-    
+
 }

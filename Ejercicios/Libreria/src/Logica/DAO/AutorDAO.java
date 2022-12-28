@@ -28,7 +28,7 @@ public class AutorDAO extends DAO<Autor> {
         }
     }
 
-    public void eliminarAutorPorId(Long id) {
+    public void eliminarAutorPorId(Integer id) {
         try {
             conectar();
             Autor a = em.find(Autor.class, id);

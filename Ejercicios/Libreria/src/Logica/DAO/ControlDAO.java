@@ -33,7 +33,7 @@ public class ControlDAO {
         }
     }
 
-    public void eliminarAutor(Long id) {
+    public void eliminarAutor(Integer id) {
         try {
             ad.eliminarAutorPorId(id);
         } catch (Exception ex) {
@@ -96,10 +96,10 @@ public class ControlDAO {
         return ld.obtenerLibros();
     }
 
-    public List<Libro> obtenerLibroPorISBN(Integer id) {
+    public List<Libro> obtenerLibroPorISBN(Long isbn) {
         List<Libro> libro = new ArrayList<>();
         try {
-            libro = ld.buscarLibroPorISBN(id);
+            libro = ld.buscarLibroPorISBN(isbn);
         } catch (Exception ex) {
             Logger.getLogger(ControlDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
