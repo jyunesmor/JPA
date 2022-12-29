@@ -62,6 +62,16 @@ public class EditorialDAO extends DAO<Editorial> {
         }
     }
 
-
+    public List<Editorial> buscarEditorialPorTitulo(String nombre) {
+        try {
+            conectar();
+            return em.createQuery("SELECT e FROM Editorial e WHERE e.nombre :busqueda")
+                    .setParameter("busqueda", nombre).getResultList();
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            desconectar();
+        }
+    }
  
 }

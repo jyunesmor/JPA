@@ -117,8 +117,7 @@ public class ServicioMain {
 
             switch (opa) {
                 case 1:
-                    Autor a = as.cargarAutor();
-                    cd.crearAutor(a);
+                    as.cargarAutor();
                     break;
                 case 2:
                     as.modificarAutor();
@@ -127,7 +126,7 @@ public class ServicioMain {
                     as.eliminarAutor();
                     break;
                 case 4:
-                    consultarAutor();
+                    menuConsultaAutor();
                     break;
                 case 5:
                     flagAu = true;
@@ -163,7 +162,7 @@ public class ServicioMain {
                     es.eliminarEditorial();
                     break;
                 case 4:
-                    consultaEditorial();
+                    menuConsultaEditorial();
                     break;
                 case 5:
                     flagEdi = true;
@@ -189,16 +188,16 @@ public class ServicioMain {
 
             switch (opc) {
                 case 1:
-
+                    cs.cargarCliente();
                     break;
                 case 2:
-
+                    cs.modificarCliente();
                     break;
                 case 3:
-
+                    cs.eliminarCliente();
                     break;
                 case 4:
-
+                    menuConsultaCliente();
                     break;
                 case 5:
                     flagcli = true;
@@ -225,19 +224,19 @@ public class ServicioMain {
 
             switch (opp) {
                 case 1:
-
+                    ps.cargarprestamo();
                     break;
                 case 2:
-
+                    ps.devolverPrestamo();
                     break;
                 case 3:
-
+                    ps.modificarPrestamo();
                     break;
                 case 4:
-
+                    ps.eliminarPrestamo();
                     break;
                 case 5:
-
+                    menuConsultaPrestamo();
                     break;
                 case 6:
                     flagpres = true;
@@ -287,11 +286,96 @@ public class ServicioMain {
         } while (flagCm != true);
     }
 
-    private void consultarAutor() {
+    private void menuConsultaAutor() {
+        boolean flagma = false;
+        do {
+            System.out.println(" ----  Menu Consulta Libro ---- ".toUpperCase());
+            System.out.println("");
+            System.out.println(" Seleccione la opcion a Consultar ");
+            System.out.println("1. Consultar Autores");
+            System.out.println("2. Consultar Autor por Nombre");
+            System.out.println("3. Salir");
+            Integer opcma = leer.nextInt();
+
+            switch (opcma) {
+                case 1:
+                    as.mostrarAutores();
+                    break;
+                case 2:
+                    as.consultarAutorPorNombre();
+                    break;
+                case 3:
+                    flagma = true;
+                    break;
+                default:
+                    System.out.println("Ingreso una opcion incorrecta, ingrese nuevamente");
+            }
+        } while (flagma != true);
+    }
+
+    private void menuConsultaEditorial() {
+        boolean flagme = false;
+        do {
+            System.out.println(" ----  Menu Consulta Editorial ---- ".toUpperCase());
+            System.out.println("");
+            System.out.println(" Seleccione la opcion a Consultar ");
+            System.out.println("1. Consultar Editoriales");
+            System.out.println("2. Consultar Editoriales por Nombre");
+            System.out.println("3. Salir");
+            Integer opcma = leer.nextInt();
+
+            switch (opcma) {
+                case 1:
+                    es.mostrarEditorial();
+                    break;
+                case 2:
+                    es.consultarAutorPorNombre();
+                    break;
+                case 3:
+                    flagme = true;
+                    break;
+                default:
+                    System.out.println("Ingreso una opcion incorrecta, ingrese nuevamente");
+            }
+        } while (flagme != true);
+    }
+
+    private void menuConsultaPrestamo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void consultaEditorial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void menuConsultaCliente() {
+        boolean flagCmc = false;
+        do {
+            System.out.println(" ----  Menu Consulta Cliente ---- ".toUpperCase());
+            System.out.println("");
+            System.out.println(" Seleccione la opcion a Consultar ");
+            System.out.println("1. Consultar Clientes");
+            System.out.println("2. Consultar Cliente por DNI");
+            System.out.println("3. Consultar Cliente por Nombre");
+            System.out.println("4. Consulto Cliente por Apellido");
+            System.out.println("5. Salir");
+            Integer opcmc = leer.nextInt();
+
+            switch (opcmc) {
+                case 1:
+                    cs.mostrarClientes();
+                    break;
+                case 2:
+                    cs.clientePorDNI();
+                    break;
+                case 3:
+                    cs.clientePorNombre();
+                    break;
+                case 4:
+                    cs.clientePorApellido();
+                    break;
+                case 5:
+                    flagCmc = true;
+                    break;
+                default:
+                    System.out.println("Ingreso una opcion incorrecta, ingrese nuevamente");
+            }
+        } while (flagCmc != true);
     }
 }

@@ -14,15 +14,14 @@ public class editorialServicio {
     
     public Editorial cargarEditorial() {
         try {
+            Editorial ed = new Editorial();
             System.out.println(" ----  Carga de la Editorial  ---- ");
             System.out.println("");
             System.out.println(" ¿Cual es el nombre de la Editorial? ");
-            String nombre = leer.next();
+            ed.setNombre(leer.next());
             System.out.println(" ¿Autor dado de Alta? ");
-            Boolean alta = leer.nextBoolean();
-
-            Integer id = null;
-            Editorial ed = new Editorial(id, nombre, alta);
+            ed.setAlta(leer.nextBoolean());
+            cd.crearEditorialBD(ed);
             return ed;
         } catch (Exception e) {
             throw e;
@@ -84,6 +83,19 @@ public class editorialServicio {
         List<Editorial> liblist = cd.obtenerEditoriales();
         for (Editorial ed : liblist) {
             System.out.println(ed.toString());
+        }
+    }
+
+    void consultarAutorPorNombre() {
+        try {
+            System.out.println(" Ingrese el Nombre de la Editorial que desea consultar");
+            String titulo = leer.next();
+            List<Editorial> elist = cd.obtenerEditorialPorNombre(titulo);
+            for (Editorial ed : elist) {
+                System.out.println(ed.toString());
+            }
+        } catch (Exception e) {
+            throw e;
         }
     }
     

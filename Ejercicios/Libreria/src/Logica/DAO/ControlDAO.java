@@ -1,4 +1,3 @@
-
 package Logica.DAO;
 
 import Logica.entidades.Autor;
@@ -11,9 +10,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class ControlDAO {
-    
+
     AutorDAO ad = new AutorDAO();
     LibroDAO ld = new LibroDAO();
     EditorialDAO ed = new EditorialDAO();
@@ -47,11 +45,11 @@ public class ControlDAO {
 
     public List<Autor> obtenerAutores() {
         try {
-         
+
             return ad.obtenerAutores();
         } catch (Exception e) {
             throw e;
-        } 
+        }
     }
 
     public List<Autor> obtenerAutorPorNombre(String nombre) {
@@ -59,7 +57,7 @@ public class ControlDAO {
             return ad.buscarAutorPorNombre(nombre);
         } catch (Exception e) {
             throw e;
-        } 
+        }
     }
 
 
@@ -85,7 +83,7 @@ public class ControlDAO {
             ld.eliminarLibro(id);
         } catch (Exception ex) {
             Logger.getLogger(ControlDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
     }
 
     public Libro obtenerLibro(Long id) {
@@ -170,6 +168,15 @@ public class ControlDAO {
         return ed.obtenerEditoriales();
     }
 
+    public List<Editorial> obtenerEditorialPorNombre(String nombre) {
+        try {
+            return ed.buscarEditorialPorTitulo(nombre);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+
     /*  -------           CLIENTE       --------------*/
     public void crearClienteBD(Cliente c) {
         try {
@@ -189,7 +196,8 @@ public class ControlDAO {
 
     public void eliminarClienteBD(Integer id) {
         try {
-            cd.eliminarCliente(id);
+            Cliente c = obtenerCliente(id);
+            cd.eliminarCliente(c);
         } catch (Exception ex) {
             Logger.getLogger(ControlDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -202,6 +210,19 @@ public class ControlDAO {
     public List<Cliente> obtenerClientes() {
         return cd.obtenerClientes();
     }
+
+    public List<Cliente> obtenerClientePorDNI(Long dni) {
+        return cd.obtenerClientePorDNI(dni);
+    }
+
+    public List<Cliente> obtenerClientePorNombre(String nombre) {
+        return cd.obtenerClientePorNombre(nombre);
+    }
+
+    public List<Cliente> obtenerClientePorApellido(String apellido) {
+        return cd.obtenerClientePorApellido(apellido);
+    }
+
 
     /*  -------          PRESTAMO       --------------*/
     public void crearPrestamoBD(Prestamo p) {
@@ -235,5 +256,5 @@ public class ControlDAO {
     public List<Prestamo> obtenerPrestamos() {
         return pd.obtenerPrestamos();
     }
-    
+
 }

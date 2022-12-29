@@ -8,6 +8,7 @@ import Logica.entidades.Autor;
 import Logica.entidades.Editorial;
 import Logica.entidades.Libro;
 import Logica.servicios.autorServicio;
+import Logica.servicios.clienteServicio;
 import Logica.servicios.editorialServicio;
 import Logica.servicios.libroServicio;
 
@@ -22,11 +23,17 @@ public class Main_Prueba {
         editorialServicio es = new editorialServicio();
         autorServicio as = new autorServicio();
         libroServicio ls = new libroServicio();
+        clienteServicio cs = new clienteServicio();
+        
 
 //        ls.mostrarlibros();
         ls.cargarLibro();
-        
-        
+//        Integer id = ls.eliminarLibro();
+//        ld.eliminarLibro(id);
+//        cs.cargarCliente();
+//        cs.mostrarClientes();
+
+//         as.cargarAutor();
     }
 
 }

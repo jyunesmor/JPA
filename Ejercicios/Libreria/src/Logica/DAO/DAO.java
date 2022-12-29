@@ -22,12 +22,11 @@ public abstract class DAO<T> {
     }
 
     public void guardar(T objeto) {
-        conectar();
+        conectar();   
         em.getTransaction().begin();
         em.persist(objeto);
         em.getTransaction().commit();
         desconectar();
-        //   Throwable e;
     }
 
     public void editar(T objeto) {

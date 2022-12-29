@@ -21,15 +21,15 @@ public class autorServicio {
 
     public Autor cargarAutor() {
         try {
+            Autor a = new Autor();
             System.out.println(" ----  Carga del Autor  ---- ");
             System.out.println("");
             System.out.println(" ¿Cual es el nombre del Autor? ");
-            String nombre = leer.next();
+            a.setNombre(leer.next());
             System.out.println(" ¿Autor dado de Alta? ");
-            Boolean alta = leer.nextBoolean();
+            a.setAlta(leer.nextBoolean());
 
-            Integer id = null;
-            Autor a = new Autor(id, nombre, alta);
+            cd.crearAutor(a);
             return a;
         } catch (Exception e) {
             throw e;
@@ -91,6 +91,19 @@ public class autorServicio {
         List<Autor> liblist = cd.obtenerAutores();
         for (Autor au : liblist) {
             System.out.println(au.toString());
+        }
+    }
+
+    public void consultarAutorPorNombre() {
+        try {
+            System.out.println(" Ingrese el Titulo del Libro que desea consultar");
+            String titulo = leer.next();
+            List<Autor> alist = cd.obtenerAutorPorNombre(titulo);
+            for (Autor au : alist) {
+                System.out.println(au.toString());
+            }
+        } catch (Exception e) {
+            throw e;
         }
     }
 

@@ -15,20 +15,21 @@ public class libroServicio {
     editorialServicio es = new editorialServicio();
 
     public void cargarLibro() {
+        Libro li = new Libro();
         System.out.println(" ----  Carga de Libro  ---- ");
         System.out.println("");
         System.out.println(" ¿Cual es el codigo ISBN del Libro? ");
-        Long isbn = leer.nextLong();
+        li.setIsbn(leer.nextLong()); 
         System.out.println(" ¿Cual es el Titulo del Libro? ");
-        String nombre = leer.next();
+        li.setTitulo(leer.next());
         System.out.println(" ¿Cual es el año del Libro? ");
-        Integer anio = leer.nextInt();
+        li.setAnio(leer.nextInt());
         System.out.println(" ¿Cual es la cantidad de Ejemplares? ");
-        Integer ej = leer.nextInt();
+        li.setEjemplares(leer.nextInt());
         System.out.println(" 'Cual es la cantidad de Ejemplares Prestados? ");
-        Integer ejp = leer.nextInt();
+        li.setEjemplaresPrestados(leer.nextInt());
         System.out.println(" ¿Libro dado de Alta? ");
-        Boolean alta = leer.nextBoolean();
+        li.setAlta(leer.nextBoolean());
 
         /* Carga Autor */
  /*  -------------------------------------------   */
@@ -42,9 +43,10 @@ public class libroServicio {
         if (resp.equalsIgnoreCase("s")) {
             System.out.println(" Selecciones al mismo con su Codigo");
             Integer is = leer.nextInt();
-            a = cd.obtenerAutor(is);
+            li.setAutor(cd.obtenerAutor(is)); 
         } else {
-            a = as.cargarAutor();
+            Autor af = as.cargarAutor();
+            li.setAutor(af);
         }
 
         /* Carga Editorial */
@@ -59,20 +61,19 @@ public class libroServicio {
         if (respe.equalsIgnoreCase("s")) {
             System.out.println(" Selecciones la misma con su Codigo");
             Integer is = leer.nextInt();
-            e = cd.obtenerEditorial(is);
+            li.setEditorial(cd.obtenerEditorial(is));
         } else {
-            e = es.cargarEditorial();
+            Editorial ed = es.cargarEditorial();
+            li.setEditorial(ed);
         }
         /*  -------------------------------------------   */
-        Integer ejr = ej - ejp;
-        Integer id = null;
-        Libro libro = new Libro(id,isbn,nombre,anio,ej,ejp,ejr,alta,a,e);
+        li.setEjemplaresRestantes(li.getEjemplares()-li.getEjemplaresPrestados());
 
-        if (libro == null) {
+        if (li == null) {
             System.out.println(" El Libro esta Vacio ");
             cargarLibro();
         } else {
-            cd.crearLibroBD(libro);
+            cd.crearLibroBD(li);
         }
     }
 

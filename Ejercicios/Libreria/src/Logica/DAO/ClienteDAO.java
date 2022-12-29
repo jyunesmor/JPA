@@ -1,30 +1,98 @@
-
 package Logica.DAO;
 
 import Logica.entidades.Cliente;
 import java.util.List;
 
+public class ClienteDAO extends DAO<Cliente> {
 
-public class ClienteDAO extends DAO<Cliente>{
-
-    List<Cliente> obtenerClientes()  {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Cliente> obtenerClientes() {
+        try {
+            conectar();
+            return em.createQuery("SELECT c FROM Cliente c ").getResultList();
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            desconectar();
+        }
     }
 
-    Cliente obtenerCliente(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Cliente obtenerCliente(Integer id) {
+        try {
+            conectar();
+            return em.find(Cliente.class, id);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            desconectar();
+        }
     }
 
-    void eliminarCliente(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void eliminarCliente(Cliente c) {
+        try {
+            conectar();
+            eliminar(c);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            desconectar();
+        }
     }
 
-    void modificarCliente(Cliente c) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void modificarCliente(Cliente c) {
+        try {
+            conectar();
+            editar(c);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            desconectar();
+        }
     }
 
-    void crearClienteBD(Cliente c) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void crearClienteBD(Cliente c) {
+        try {
+            conectar();
+            guardar(c);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            desconectar();
+        }
     }
-    
+
+    public List<Cliente> obtenerClientePorDNI(Long dni) {
+        try {
+            conectar();
+            return em.createQuery("SELECT c FROM Cliente c WHERE c.documento :busqueda")
+                    .setParameter("busqueda",dni).getResultList();
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            desconectar();
+        }
+    }
+
+    public List<Cliente> obtenerClientePorNombre(String nombre) {
+        try {
+            conectar();
+            return em.createQuery("SELECT c FROM Cliente c WHERE c.nombre :busqueda")
+                    .setParameter("busqueda",nombre).getResultList();
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            desconectar();
+        }
+    }
+
+    public List<Cliente> obtenerClientePorApellido(String apellido) {
+        try {
+            conectar();
+            return em.createQuery("SELECT c FROM Cliente c WHERE c.apellido :busqueda")
+                    .setParameter("busqueda",apellido).getResultList();
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            desconectar();
+        }
+    }
 }
