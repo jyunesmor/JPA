@@ -81,10 +81,9 @@ public class libroServicio {
         try {
             System.out.println(" ---  Modificacion Datos Libros  --- ");
             System.out.println("");
-            System.out.println(" ¿ Cual Libro desea modificar algun Dato? con Codigo ISBN");
-            Long isbn = leer.nextLong();
-            Libro libro = cd.obtenerLibro(isbn);
-            System.out.println(libro.toString());
+            System.out.println(" ¿ Cual Libro desea modificar algun Dato? con Codigo ID");
+            Integer id = leer.nextInt();
+            Libro libro = cd.obtenerLibro(id);
             System.out.println("");
             boolean flag = false;
             do {

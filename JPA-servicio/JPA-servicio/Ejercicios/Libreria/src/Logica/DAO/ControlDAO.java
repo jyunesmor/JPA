@@ -86,10 +86,10 @@ public class ControlDAO {
         }
     }
 
-    public Libro obtenerLibro(Long id) {
+    public Libro obtenerLibro(Integer id) {
         return ld.obtenerLibro(id);
     }
-
+    
     public List<Libro> obtenerLibros() {
         return ld.obtenerLibros();
     }
@@ -255,6 +255,10 @@ public class ControlDAO {
 
     public List<Prestamo> obtenerPrestamos() {
         return pd.obtenerPrestamos();
+    }
+
+    public List<Prestamo> obtenerPrestamoPorNumeroDNICliente(Long dni) {
+        return pd.obtenerPrestamosPorDNICliente(dni);
     }
 
 }

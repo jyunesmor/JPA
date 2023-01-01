@@ -39,10 +39,10 @@ public class LibroDAO extends DAO<Libro> {
         }
     }
 
-    public Libro obtenerLibro(Long id) {
+    public Libro obtenerLibro(Integer id) {
         try {
             conectar();
-            return em.find(Libro.class, id);
+            return em.find(Libro.class,id);
         } catch (Exception e) {
             throw e;
         } finally {
