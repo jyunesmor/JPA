@@ -40,8 +40,8 @@ public class Main_Prueba {
 //        cs.cargarCliente();
 //        cs.mostrarClientes();
 //        as.cargarAutor();
-        Prestamo p = ps.cargarprestamo();
-        cd.crearPrestamoBD(p);
+//        Prestamo p = ps.cargarprestamo();
+//        cd.crearPrestamoBD(p);
 //        ps.devolverPrestamo();
     }
 

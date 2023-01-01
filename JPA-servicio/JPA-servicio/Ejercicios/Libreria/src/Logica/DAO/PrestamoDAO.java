@@ -71,10 +71,11 @@ public class PrestamoDAO extends DAO<Prestamo>{
         }
     }
 
-    List<Prestamo> obtenerPrestamosPorDNICliente(Long dni) {
+    public List<Prestamo> obtenerPrestamosPorDNICliente(Long dni) {
         try {
             conectar();
-            return em.createQuery("SELECT p FROM Prestamo p, Cliente c WHERE c.documento : busqueda").setParameter("busqueda",dni).getResultList();
+            return em.createQuery("SELECT p FROM Prestamo p WHERE p.cliente.documento : busqueda")
+                    .setParameter("busqueda",dni).getResultList();
         } catch (Exception e) {
             throw e;
         } finally {

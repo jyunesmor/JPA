@@ -2,6 +2,7 @@ package Logica.servicios;
 
 import Logica.DAO.ControlDAO;
 import Logica.entidades.Cliente;
+import Logica.entidades.Libro;
 import Logica.entidades.Prestamo;
 import java.util.Date;
 import java.util.List;
@@ -60,7 +61,6 @@ public class prestamoServicio {
 
         System.out.println(" Prestamos Activos ");
         System.out.println("");
-        ps.mostrarPrestamo();
         System.out.println(" ¿Ingrese el DNI del Cliente? ");
         Long dni = leer.nextLong();
         prestamosPorClientesDNI(dni);
@@ -81,16 +81,61 @@ public class prestamoServicio {
 
     }
 
-    void modificarPrestamo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Prestamo modificarPrestamo() {
+        try {
+
+            System.out.println(" ---  Modificacion Datos Libros  --- ");
+            System.out.println("");
+            System.out.println(" ¿ Cual Prestamo desea modificar algun Dato? con Codigo ID");
+            Integer id = leer.nextInt();
+            Prestamo p = cd.obtenerPrestamo(id);
+            System.out.println("");
+            boolean flag = false;
+            do {
+                System.out.println(" -- Menu Modificacion -- ");
+                System.out.println(" ¿Cual dato desea actualizar? ");
+                System.out.println("1. Libro");
+                System.out.println("2. Cliente");
+                System.out.println("3. Salir");
+                Integer op = leer.nextInt();
+
+                switch (op) {
+                    case 1:
+                        System.out.println(" ¿Ingrese el nuevo libro? ");
+                        ls.mostrarlibros();
+                        System.out.println(" ¿ Cual Libro desea Asignar? con Codigo ID");
+                        Integer idl = leer.nextInt();
+                        Libro l = cd.obtenerLibro(idl);
+                        p.setLibro(l);
+                        break;
+                    case 2:
+                        System.out.println(" ¿Ingrese el nuevo Cliente? ");
+                        cs.mostrarClientes();
+                        System.out.println(" ¿ Cual Cliente desea Asignar? con Codigo ID");
+                        Integer idc = leer.nextInt();
+                        Cliente c = cd.obtenerCliente(idc);
+                        p.setCliente(c);
+                        break;
+                    case 3:
+                        flag = true;
+                        break;
+                    default:
+                        System.out.println(" Ingreso una opcion incorrecta, por favor Ingresla nuevamente");
+                }
+            } while (flag != true);
+            return p;
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
-    void eliminarPrestamo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    void menuConsultaPrestamo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Integer eliminarPrestamo() {
+        System.out.println("");
+        mostrarPrestamo();
+        System.out.println("");
+        System.out.println(" ¿Cual Prestamo desea eliminar? por Codigo ID? ");
+        Integer id = leer.nextInt();
+        return id;
     }
 
     public void mostrarPrestamo() {
